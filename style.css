@@ -1,0 +1,218 @@
+    /* ── Tokens ── */
+    :root {
+      --bg:          #f0f4f8;
+      --surface:     #ffffff;
+      --border:      #d1dce8;
+      --primary:     #2c5282;
+      --primary-h:   #1a365d;
+      --accent:      #3182ce;
+      --text:        #1a202c;
+      --muted:       #718096;
+      --success:     #2f855a;
+      --success-bg:  #f0fff4;
+      --radius:      10px;
+      --shadow:      0 2px 12px rgba(44, 82, 130, 0.10);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem 1rem 4rem;
+    }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    header .eyebrow {
+      font-size: .75rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: .4rem;
+    }
+    header h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -.01em;
+    }
+    header p {
+      margin-top: .4rem;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    /* ── Layout ── */
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.75rem;
+      max-width: 960px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .card-header {
+      padding: 1.1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .card-header .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .icon-reg  { background: #ebf4ff; color: var(--accent); }
+    .icon-search { background: #fff5f5; color: #c53030; }
+
+    .card-header h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .card-header p {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-top: .1rem;
+    }
+    .card-body { padding: 1.5rem; }
+
+    /* ── Form elements ── */
+    .field { margin-bottom: 1.1rem; }
+    .field:last-of-type { margin-bottom: 0; }
+
+    label {
+      display: block;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .35rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: .6rem .85rem;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      font-size: .95rem;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color .18s, box-shadow .18s;
+      outline: none;
+    }
+    input:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(49, 130, 206, .15);
+      background: #fff;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+      line-height: 1.5;
+    }
+
+    /* Two columns inside a form */
+    .row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      padding: .65rem 1.3rem;
+      border: none;
+      border-radius: 6px;
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .18s, transform .1s;
+      width: 100%;
+      justify-content: center;
+      margin-top: 1.25rem;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--primary-h); }
+    .btn-primary:active { transform: scale(.98); }
+
+    .btn-search {
+      background: #c53030;
+      color: #fff;
+    }
+    .btn-search:hover { background: #9b2c2c; }
+    .btn-search:active { transform: scale(.98); }
+
+    /* ── Result box ── */
+    .result-box {
+      margin-top: 1.1rem;
+      padding: .9rem 1rem;
+      border-radius: 6px;
+      font-size: .88rem;
+      display: none;
+    }
+    .result-box.show { display: block; }
+    .result-box.found {
+      background: var(--success-bg);
+      border: 1px solid #9ae6b4;
+      color: var(--success);
+    }
+    .result-box.not-found {
+      background: #fff5f5;
+      border: 1px solid #feb2b2;
+      color: #c53030;
+    }
+
+    /* ── Feedback ── */
+    .feedback {
+      margin-top: 1rem;
+      font-size: .85rem;
+      display: none;
+      padding: .7rem 1rem;
+      border-radius: 6px;
+    }
+    .feedback.show { display: block; }
+    .feedback.ok {
+      background: var(--success-bg);
+      border: 1px solid #9ae6b4;
+      color: var(--success);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      .layout { grid-template-columns: 1fr; }
+      .row-2  { grid-template-columns: 1fr; }
+    }
+  
