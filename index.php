@@ -10,7 +10,7 @@
 
   <header>
     <p class="eyebrow">Sistema de gestión</p>
-    <h1>Pacientes</h1>
+    <h1>Pacientes de la clinica</h1>
     <p>Registrá un nuevo paciente o buscá por número de DNI</p>
   </header>
 
